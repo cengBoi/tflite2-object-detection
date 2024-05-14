@@ -14,14 +14,8 @@ def xml_to_csv(path):
         for member in root.findall('object'):
             x_y_list = []
             for m in member[5]:
-                divided = int(m.text) / 640
-                print(divided)
-                if divided < 0.0:
-                    x_y_list.append(0.0)
-                elif divided > 1.0:
-                    x_y_list.append(1.0)
-                else:
-                    x_y_list.append(divided)
+                divided = int(m.text)
+                x_y_list.append(divided)
             value = (root.find('filename').text,
                      int(root.find('size')[0].text),
                      int(root.find('size')[1].text),
